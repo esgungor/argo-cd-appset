@@ -13,6 +13,9 @@ spec:
       name: '{{cluster}}-test-set'
     spec:
       project: default
+      destination:
+        namespace: argocd
+        server: https://kubernetes.default.svc
       source:
         repoURL: https://github.com/esgungor/argo-cd-appset
         targetRevision: HEAD
