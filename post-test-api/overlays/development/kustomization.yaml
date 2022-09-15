@@ -6,6 +6,9 @@ patches:
   target:
     kind: Deployment
     name: .*
-
+- path: service-patch.yaml
+  target:
+    kind: Service
+    name: .*
 resources:
   - ../../base
