@@ -20,3 +20,7 @@ spec:
         repoURL: https://github.com/esgungor/argo-cd-appset
         targetRevision: HEAD
         path: post-test-api/overlays/{{cluster}}
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
