@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: guestbook
+  name: test-set
 spec:
   generators:
   - list:
@@ -10,13 +10,10 @@ spec:
       - cluster: production
   template:
     metadata:
-      name: '{{cluster}}-guestbook'
+      name: '{{cluster}}-test-set'
     spec:
       project: default
       source:
-        repoURL: https://github.com/infra-team/cluster-deployments.git
+        repoURL: https://github.com/esgungor/argo-cd-appset
         targetRevision: HEAD
-        path: guestbook/{{cluster}}
-      destination:
-        server: '{{url}}'
-        namespace: guestbook
+        path: post-test-api/overlays/{{cluster}}
